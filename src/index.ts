@@ -33,15 +33,25 @@ const analyzeHtml = (filePath: string): EntriesByClassSet => {
       }, Map() as EntriesByClassSet)
   }
 
-const analyzeFolder = (targetPath: string) =>
-    fs.readdirSync(targetPath)
-      .filter((file: string) => path.extname(file) === ".html")
-      .map((file: string) => path.join(targetPath, file))
-      .reduce(
-        (accumulator: EntriesByClassSet, filePath: string) =>
-          mergeEntries(accumulator, analyzeHtml(filePath)), 
-        Map() as EntriesByClassSet
-      ).filter((value, _key) => value.length > 1)
+const analyzeFolder = (targetPath: string): EntriesByClassSet => {
+  const allFiles: string[] = fs.readdirSync(targetPath);
+  return allFiles.reduce(
+    (accumulator: EntriesByClassSet, file: string) => {
+      const filePath: string = path.join(targetPath, file);
+      if (fs.statSync(filePath).isDirectory()) {
+          // Recursively analyze subfolders
+          return mergeEntries(accumulator, analyzeFolder(filePath));
+      } else if (path.extname(file) === ".html") {
+          // Analyze HTML files
+          return mergeEntries(accumulator, analyzeHtml(filePath));
+      } else {
+          // Ignore non-HTML files
+          return accumulator;
+      }
+    },
+    Map() as EntriesByClassSet
+  ).filter((value, _key) => value.length > 1);
+}
 
 const run = () => {
   const targetPath: string = process.argv[2];
