@@ -1,0 +1,16 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore compiled TypeScript files
+dist/
+
+# Ignore environment-specific files
+.env
+
+# Ignore any generated files or directories
+.DS_Store
+*.log
+npm-debug.log*
+
+# Ignore any build-related files
+/build/

@@ -1,5 +1,5 @@
 # dry-styles
-A tool to understand CSS class usage patterns within projects
+A tool to understand CSS class usage patterns within projects.
 
 ## Functionality Overview
 
@@ -10,3 +10,26 @@ This app extracts CSS class info from HTML files in a specified directory, assoc
 
 ## Potential Use with Tailwind CSS
 This application's functionality can be particularly beneficial when working with utility-first CSS frameworks like Tailwind CSS. By gaining insights into which utility classes are heavily utilized together and where they're applied, developers can make informed decisions regarding code organization and refactoring.
+
+## Installing Dependencies
+```bash
+npm install
+```
+
+## Running
+```bash
+npx ts-node <target_directory>
+```
+
+## Testing
+For now the application requires manual testing.
+```bash
+npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
+```
+
+## TODO:
+[] recursively traverse all foders
+[] add support for relative path 
+[] create cli.ts file to validate input/give prettier output
+[] add an option to exclude certain folders from the analisys
+[] add support to analyse a single file instead of folder
