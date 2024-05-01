@@ -28,8 +28,6 @@ npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
 ```
 
 ## TODO:
-[] recursively traverse all foders
 [] add support for relative path 
 [] create cli.ts file to validate input/give prettier output
 [] add an option to exclude certain folders from the analisys
-[] add support to analyse a single file instead of folder
