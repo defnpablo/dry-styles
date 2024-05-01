@@ -1,2 +1,12 @@
 # dry-styles
-Tool to helo understand CSS class usage patterns within projects
+A tool to understand CSS class usage patterns within projects
+
+## Functionality Overview
+
+This application parses HTML files within a specified directory, extracting CSS class information from elements. 
+It then organizes this data, associating each CSS class with the file location and line number where it's used. This organized data is invaluable for understanding the usage patterns of CSS classes within the project.
+
+This app extracts CSS class info from HTML files in a specified directory, associating each class with its usage location (file and line number). This insight aids in understanding CSS class usage patterns across the project.
+
+## Potential Use with Tailwind CSS
+This application's functionality can be particularly beneficial when working with utility-first CSS frameworks like Tailwind CSS. By gaining insights into which utility classes are heavily utilized and where they're applied, developers can make informed decisions regarding code organization, and refactoring.
