@@ -18,7 +18,7 @@ npm install
 
 ## Running
 ```bash
-npx ts-node <target_directory>
+npx ts-node src/index.js <absolute_path_of_target_directory>
 ```
 
 ## Testing
