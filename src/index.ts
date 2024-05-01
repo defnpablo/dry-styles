@@ -33,8 +33,7 @@ const analyzeHtml = (filePath: string): EntriesByClassSet => {
       }, Map() as EntriesByClassSet)
   }
 
-const analyzeFolder =
-  (targetPath: string) =>
+const analyzeFolder = (targetPath: string) =>
     fs.readdirSync(targetPath)
       .filter((file: string) => path.extname(file) === ".html")
       .map((file: string) => path.join(targetPath, file))
