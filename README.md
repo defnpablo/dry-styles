@@ -28,6 +28,6 @@ npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
 ```
 
 ## TODO:
-[] add support for relative path 
+[] add counter to each class set
 [] create cli.ts file to validate input/give prettier output
 [] add an option to exclude certain folders from the analisys

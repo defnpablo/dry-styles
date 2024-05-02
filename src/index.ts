@@ -56,12 +56,18 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
 const run = () => {
   const targetPath: string = process.argv[2];
 
-  if (! fs.existsSync(targetPath)) {
+  if (!targetPath) {
+    console.error('Error: Please provide a target path.');
+    process.exit(1);
+  }
+
+  const resolvedPath = path.resolve(targetPath);
+  if (! fs.existsSync(resolvedPath)) {
     console.error('Error: Path does not exist:', targetPath);
     process.exit(1);
   }
   
-  return analyzeFolder(targetPath).toJS();
+  return analyzeFolder(resolvedPath).toJS();
 }
 
 console.log(run())
