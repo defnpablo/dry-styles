@@ -88,7 +88,7 @@ const run = () => {
 
   const resolvedPath = path.resolve(targetPath);
   if (!fs.existsSync(resolvedPath)) {
-    console.error('Error: Path does not exist:', targetPath);
+    console.error('Error: Path does not exist:', resolvedPath);
     process.exit(1);
   }
 
