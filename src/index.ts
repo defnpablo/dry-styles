@@ -33,7 +33,7 @@ const analyzeHtml = (filePath: string): EntriesByClassSet => {
       }, Map() as EntriesByClassSet)
   }
 
-const analyzeFolder = (targetPath: string): EntriesByClassSet => {
+const analyzeFolder = (targetPath: FileLocation): EntriesByClassSet => {
   const allFiles: string[] = fs.readdirSync(targetPath);
   return allFiles.reduce(
     (accumulator: EntriesByClassSet, file: string) => {
@@ -54,7 +54,7 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
 }
 
 const run = () => {
-  const targetPath: string = process.argv[2];
+  const targetPath: FileLocation = process.argv[2];
 
   if (!targetPath) {
     console.error('Error: Please provide a target path.');
