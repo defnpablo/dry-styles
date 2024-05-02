@@ -18,7 +18,7 @@ npm install
 
 ## Running
 ```bash
-npx ts-node src/index.js <absolute_path_of_target_directory>
+npx ts-node src/index.js <target_directory>
 ```
 
 ## Testing
@@ -28,6 +28,6 @@ npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
 ```
 
 ## TODO:
-[] add counter to each class set
-[] create cli.ts file to validate input/give prettier output
+[] create cli.ts file to validate input options / give prettier output
 [] add an option to exclude certain folders from the analisys
+[] add counter to each class set
