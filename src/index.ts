@@ -63,6 +63,8 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
   return allFiles.reduce(
     (accumulator: EntriesByClassSet, file: string) => {
       const filePath: string = path.join(targetPath, file);
+
+      // If the file is a directory and not a hidden directory
       if (fs.statSync(filePath).isDirectory() && !file.startsWith('.')) {
         // Recursively analyze subfolders
         return mergeEntries(accumulator, analyzeFolder(filePath));
