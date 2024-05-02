@@ -29,5 +29,6 @@ npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
 
 ## TODO:
 [] create cli.ts file to validate input options / give prettier output
+[] add an option to exclude hidden folders from the analisys
 [] add an option to exclude certain folders from the analisys
 [] add counter to each class set
