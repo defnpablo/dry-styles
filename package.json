@@ -1,0 +1,22 @@
+{
+  "name": "dry-styles",
+  "version": "1.0.0",
+  "description": "Static analysis tool for pinpointing components that share matching class combinations.",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/lodash.get": "^4.4.9",
+    "@types/lodash.keys": "^4.2.9",
+    "@types/lodash.set": "^4.3.9",
+    "npm": "^10.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "immutable": "^5.0.0-beta.5",
+    "lodash": "^4.17.21",
+    "lodash.get": "^4.4.2",
+    "lodash.keys": "^4.2.0",
+    "lodash.set": "^4.3.2"
+  }
+}
