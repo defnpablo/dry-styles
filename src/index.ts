@@ -77,8 +77,16 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
       }
     },
     Map() as EntriesByClassSet
-  ).filter((value, _key) => value.length > 1); // remove class sets with only one instance
+  ).filter((value, key) => value.length > 1 && key.toArray().length > 1); 
 };
+
+const displayFormattedResult = (result: EntriesByClassSet): void => {
+    Array.from(result.entries())
+      .sort(([_keyA, valueA], [_keyB, valueB]) => valueB.length - valueA.length)
+      .forEach(([key, value]) => {
+        console.log(key.toArray().toString(), "(" + value.length + ")");
+    });
+  }
 
 const run = () => {
   const targetPath: string = process.argv[2];
@@ -94,7 +102,7 @@ const run = () => {
     process.exit(1);
   }
 
-  return analyzeFolder(resolvedPath).toJS();
+  return displayFormattedResult(analyzeFolder(resolvedPath));
 };
 
 console.log(run());
