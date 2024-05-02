@@ -4,6 +4,7 @@ import { Map, Set } from 'immutable';
 import * as fs from "fs";
 import * as path from "path";
 import * as cheerio from "cheerio";
+import kleur from 'kleur';
 
 type FileLocation = string
 type LineNumber = number
@@ -77,16 +78,28 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
       }
     },
     Map() as EntriesByClassSet
-  ).filter((value, key) => value.length > 1 && key.toArray().length > 1); 
+  ).filter((value, key) => value.length > 1 && key.toArray().length > 1);
 };
 
-const displayFormattedResult = (result: EntriesByClassSet): void => {
-    Array.from(result.entries())
-      .sort(([_keyA, valueA], [_keyB, valueB]) => valueB.length - valueA.length)
-      .forEach(([key, value]) => {
-        console.log(key.toArray().toString(), "(" + value.length + ")");
-    });
-  }
+const displayEntry = ([classSet, codeLocations]: [CssClassSet, CodeLocation[]]): void => {
+  console.log(
+    kleur.cyan(classSet.toArray().toString()), 
+    kleur.white("(" + codeLocations.length + ")")
+  );
+  codeLocations.forEach(([filePath, lineNumber]) =>
+    console.log(
+      "    ",
+      kleur.green(filePath),
+      kleur.yellow(lineNumber)
+    )
+  )
+  console.log("\n");
+}
+
+const displayFormattedResult = (result: EntriesByClassSet): void =>
+  Array.from(result.entries())
+    .sort(([_keyA, valueA], [_keyB, valueB]) => valueB.length - valueA.length)
+    .forEach(displayEntry);
 
 const run = () => {
   const targetPath: string = process.argv[2];
