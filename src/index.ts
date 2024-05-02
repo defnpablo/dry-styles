@@ -1,5 +1,5 @@
-// We're using Immmutable.js to be able to use complex
-// datastructures (such as Sets) as keys in `Map`s.
+/* We're using Immmutable.js to be able to use complex
+ datastructures (such as Sets) as keys in `Map`s. */
 import { Map, Set } from 'immutable';
 import * as fs from "fs";
 import * as path from "path";
@@ -75,7 +75,7 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
       }
     },
     Map() as EntriesByClassSet
-  ).filter((value, _key) => value.length > 1);
+  ).filter((value, _key) => value.length > 1); // remove class sets with only one instance
 };
 
 const run = () => {
