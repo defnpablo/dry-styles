@@ -63,7 +63,7 @@ const analyzeFolder = (targetPath: string): EntriesByClassSet => {
   return allFiles.reduce(
     (accumulator: EntriesByClassSet, file: string) => {
       const filePath: string = path.join(targetPath, file);
-      if (fs.statSync(filePath).isDirectory()) {
+      if (fs.statSync(filePath).isDirectory() && !file.startsWith('.')) {
         // Recursively analyze subfolders
         return mergeEntries(accumulator, analyzeFolder(filePath));
       } else if (path.extname(file) === ".html") {
