@@ -3,18 +3,16 @@
   "version": "1.0.0",
   "description": "Static analysis tool for pinpointing components that share matching class combinations.",
   "devDependencies": {
-    "@eslint/js": "^9.1.1",
     "@types/cheerio": "^0.22.35",
-    "@types/node": "^20.12.10",
+    "@types/yargs": "^17.0.32",
     "eslint": "^8.57.0",
     "npm": "^10.6.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
+    "@eslint/js": "^9.1.1",
     "typescript-eslint": "^7.8.0"
   },
   "dependencies": {
-    "@types/yargs": "^17.0.32",
-    "cac": "^6.7.14",
     "cheerio": "^1.0.0-rc.12",
     "immutable": "^5.0.0-beta.5",
     "kleur": "^4.1.5",

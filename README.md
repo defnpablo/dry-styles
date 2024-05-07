@@ -32,8 +32,6 @@ npx ts-node analyze src/index.js /Users/pablo/Documents/dry-styles/tests/static 
 ```
 
 ## TODO:
-[] add linter
-
 [] add an option to include hidden folders on the analisys
 
 [] add an option to exclude certain folders from the analisys

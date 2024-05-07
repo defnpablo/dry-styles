@@ -1,15 +1,14 @@
-/* We're using Immmutable.js to be able to use complex
- datastructures (such as Sets) as keys in `Map`s. */
+/* We're using Immutable.js to enable the use of complex data structures (such as Sets) as keys in Maps. */
 import { Map, Set } from 'immutable';
 import * as fs from "fs";
 import * as path from "path";
 import * as cheerio from "cheerio";
 
-export type FileLocation = string
-export type LineNumber = number
+export type FileLocation = string;
+export type LineNumber = number;
 export type CodeLocation = [FileLocation, LineNumber];
-export type CssClassSet = Set<string>
-export type EntriesByClassSet = Map<CssClassSet, CodeLocation[]>
+export type CssClassSet = Set<string>;
+export type EntriesByClassSet = Map<CssClassSet, CodeLocation[]>;
 
 /**
  * Retrieves the line number of the given HTML element within the HTML text.
@@ -36,8 +35,9 @@ const mergeEntries = (map1: EntriesByClassSet, map2: EntriesByClassSet): Entries
 * Analyzes an HTML file and returns a map of CSS class sets to code locations.
 * 
 * @param {string} filePath - The path to the HTML file.
-* @returns {EntriesByClassSet} A map of CSS class sets to code locations.
-*/
+* @param {string} htmlText - The HTML text content.
+ * @returns {EntriesByClassSet} A map of CSS class sets to code locations.
+ */
 export const analyzeHtml = (filePath: string, htmlText: string): EntriesByClassSet => {
   const $ = cheerio.load(htmlText, { withStartIndices: true, xmlMode: true });
   return $('[class]')
@@ -56,7 +56,7 @@ export const analyzeHtml = (filePath: string, htmlText: string): EntriesByClassS
 * 
 * @param {string} targetPath - The path to the folder to analyze.
 * @returns {EntriesByClassSet} A map of CSS class sets to code locations.
-*/
+ */
 export const analyzeFolder = (targetPath: string): EntriesByClassSet => {
   const allFiles: string[] = fs.readdirSync(targetPath);
   return allFiles.reduce(
