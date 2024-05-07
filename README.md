@@ -17,18 +17,23 @@ npm install
 ```
 
 ## Running
+To analyze CSS class usage patterns within a project, run the following command:
+
 ```bash
-npx ts-node src/index.js <target_directory>
+npx ts-node src/index.js analyze <target_directory> [--sortBy <classes|entries>]
 ```
 
-## Testing
-For now the application requires manual testing.
+- `<target_directory>`: The path to the directory containing HTML files to analyze.
+- `--sortBy <classes|entries>` (optional): Sort the results by either classes or entries. Default is entries.
+
+For example:
 ```bash
-npx ts-node src/index.ts /Users/pablo/Documents/dry-styles/tests/static
+npx ts-node analyze src/index.js /Users/pablo/Documents/dry-styles/tests/static --sortBy classes
 ```
 
 ## TODO:
-[] create cli.ts file to validate input options / give prettier output
+[] add linter
+
 [] add an option to include hidden folders on the analisys
+
 [] add an option to exclude certain folders from the analisys
-[] add counter to each class set
