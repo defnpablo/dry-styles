@@ -24,7 +24,7 @@ npx ts-node src/index.js analyze <target_directory> [--sortBy <classes|entries>]
 ```
 
 - `<target_directory>`: The path to the directory containing HTML files to analyze.
-- `--sortBy <classes|entries>` (optional): Sort the results by either classes or entries. Default is entries.
+- `--sortBy <classes|entries>` (optional): Sort the results by the number of entries of a class set, or how many classes there are in the class set. Default is entries.
 
 For example:
 ```bash
