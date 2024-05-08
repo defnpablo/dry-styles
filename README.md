@@ -20,7 +20,7 @@ npm install
 To analyze CSS class usage patterns within a project, run the following command:
 
 ```bash
-npx ts-node src/index.js analyze <target_directory> [--sortBy <classes|entries>]
+npx tsx src/bin.js analyze <target_directory> [--sortBy <classes|entries>]
 ```
 
 - `<target_directory>`: The path to the directory containing HTML files to analyze.
@@ -28,7 +28,12 @@ npx ts-node src/index.js analyze <target_directory> [--sortBy <classes|entries>]
 
 For example:
 ```bash
-npx ts-node analyze src/index.js /Users/pablo/Documents/dry-styles/tests/static --sortBy classes
+npx tsx analyze src/bin.js /Users/pablo/Documents/dry-styles/tests/static --sortBy classes
+```
+
+## Bundling 
+```bash
+npx tsup
 ```
 
 ## TODO:
